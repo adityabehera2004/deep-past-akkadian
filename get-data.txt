@@ -1,0 +1,2 @@
+kaggle competitions download -c deep-past-initiative-machine-translation
+unzip -o deep-past-initiative-machine-translation.zip -d data
