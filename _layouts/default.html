@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>{{ page.title | default: site.title | default: "Deep Past Akkadian" }}</title>
+  <style>
+    :root { --max-width: 760px; --bg: #ffffff; --text: #121212; --muted: #6b7280; --accent: #0366d6; }
+    html,body{height:100%;}
+    body{font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,"Helvetica Neue",Arial; background:var(--bg); color:var(--text); margin:0; padding:2rem 1rem; display:flex; align-items:flex-start; justify-content:center}
+    .container{max-width:var(--max-width); width:100%;}
+    header{border-bottom:1px solid #eee; padding-bottom:.6rem; margin-bottom:1rem}
+    h1{margin:0 0 .25rem 0}
+    .meta{color:var(--muted); font-size:.95rem; margin-bottom:1rem}
+    a{color:var(--accent)}
+    p{line-height:1.6}
+    pre, code{background:#f6f8fa;padding:.2rem .4rem;border-radius:6px}
+  </style>
+</head>
+<body>
+  <div class="container">
+    <header>
+      <h1>{{ page.title | default: "Deep Past Akkadian" }}</h1>
+    </header>
+    <main>
+      {{ content }}
+    </main>
+    <footer class="meta">
+      Final project for CS 4650 Natural Language Processing (Georgia Tech) — Collaborators: Aditya Behera and Abhi Karthana
+    </footer>
+  </div>
+</body>
+</html>

@@ -1,8 +1,7 @@
 ---
-layout: null
+layout: default
+title: Deep Past Akkadian
 ---
-
-# Deep Past Akkadian
 
 Final project for CS 4650 Natural Language Processing (Georgia Tech)
 
