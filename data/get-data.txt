@@ -1,0 +1,27 @@
+mkdir data && cd data
+kaggle competitions download -c deep-past-initiative-machine-translation
+unzip -o deep-past-initiative-machine-translation.zip -d raw_data
+
+deep-past-akkadian/
+└── data/
+    ├── deep-past-initiative-machine-translation.zip
+    ├── raw_data/
+    └── clean_data/
+        ├── definitions.csv
+        ├── test_clean.csv
+        └── train_clean.csv
+
+How to clean data:
+- run preprocess_definitions.py to create a dictionary of common akkadian words (definitions.csv)
+- run preprocess_all.py to get rid of annotations and use canonical symbols (train_clean.csv and test_clean.csv)
+Everything but data/clean_data is gitignored (zip and raw are too large)
+- It can take a while to get the definitions.csv so I decided it was better to just commit it
+
+It is also hard to make the definitions.csv without a cookie and user-agent
+If you want to make your own, do the following:
+1. Go to https://www.ebl.lmu.de/dictionary?word=ab%20%C5%A1arr%C4%81n%C4%93 (any other word query will also work)
+2. Enter the dev console (inspect mode) and go to the Network tab
+3. Look for a network packet named "words?query=word%3D..." and click on it
+4. This should have a Request URL of https://www.ebl.lmu.de/api/words?query=word%3D...
+5. Scroll down in the Headers and copy paste the Cookie and User-Agent fields
+6. Since these are actual cookies, you may have to do this again when they expire

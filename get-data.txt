@@ -1,9 +1,0 @@
-mkdir data && cd data
-kaggle competitions download -c deep-past-initiative-machine-translation
-unzip -o deep-past-initiative-machine-translation.zip -d raw_data
-
-deep-past-akkadian/
-└── data/
-    ├──deep-past-initiative-machine-translation.zip
-    ├── raw_data/
-    └── clean_data/
