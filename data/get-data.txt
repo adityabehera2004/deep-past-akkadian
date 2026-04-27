@@ -17,7 +17,7 @@ How to clean data:
 Everything but data/clean_data is gitignored (zip and raw are too large)
 - It can take a while to get the definitions.csv so I decided it was better to just commit it
 
-It is also hard to make the definitions.csv without a cookie and user-agent
+It is also hard to make the definitions.csv without a cookie and user-agent (I didn't commit my cookies because apparently that's dangerous)
 If you want to make your own, do the following:
 1. Go to https://www.ebl.lmu.de/dictionary?word=ab%20%C5%A1arr%C4%81n%C4%93 (any other word query will also work)
 2. Enter the dev console (inspect mode) and go to the Network tab
