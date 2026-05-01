@@ -65,10 +65,23 @@ def make_train_clean():
 
     for idx, r in sent_level.iterrows():
         trans = r.get('transliteration', '')
-        trad = r.get('translation', '')
+        # fallback to document-level transliteration if sentence-level is empty
+        if not trans or (isinstance(trans, float) and pd.isna(trans)) or (isinstance(trans, str) and trans.strip() == ''):
+            tm = train_map.get(r.get('oare_id'))
+            if tm and hasattr(tm, 'transliteration') and tm.transliteration and not pd.isna(tm.transliteration):
+                trans = tm.transliteration
+        
+        # prefer sentence-level translation, but fallback to document-level if missing
+        sent_trad = r.get('translation', '')
+        if not sent_trad or (isinstance(sent_trad, float) and pd.isna(sent_trad)):
+            # train_map holds per-document rows from the original train CSV
+            tm = train_map.get(r.get('oare_id'))
+            if tm and hasattr(tm, 'translation') and tm.translation and not pd.isna(tm.translation):
+                sent_trad = tm.translation
+
         trans_c = preprocess.preprocess_akkadian_text(trans)
         trans_annot = annotate_sentence(trans_c)
-        trad_c = preprocess.preprocess_english_text(trad)
+        trad_c = preprocess.preprocess_english_text(sent_trad)
         rows.append({
             'oare_id': r.get('oare_id'),
             'sentence_uuid': r.get('sentence_id'),
@@ -83,11 +96,15 @@ def make_train_clean():
         if r.oare_id not in sent_oare:
             trans = r.transliteration if hasattr(r, 'transliteration') else ''
             trad = r.translation if hasattr(r, 'translation') else ''
+            trans_c = preprocess.preprocess_akkadian_text(trans)
+            trans_annot = annotate_sentence(trans_c)
+            trad_c = preprocess.preprocess_english_text(trad)
             rows.append({
                 'oare_id': r.oare_id,
                 'sentence_uuid': None,
-                'transliteration': preprocess.preprocess_akkadian_text(trans),
-                'translation': preprocess.preprocess_english_text(trad)
+                'transliteration': trans_c,
+                'transliteration_with_annotations': trans_annot,
+                'translation': trad_c
             })
 
     out_df = pd.DataFrame(rows)
