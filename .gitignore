@@ -5,6 +5,4 @@ deep-past-initiative-machine-translation.zip
 data/*.zip
 data/raw_data/
 
-byt5_lora_ckpt/
-
 .env
