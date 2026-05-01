@@ -6,17 +6,23 @@ deep-past-akkadian/
 └── data/
     ├── deep-past-initiative-machine-translation.zip
     ├── raw_data/
-    └── clean_data/
-        ├── definitions.csv
-        ├── test_clean.csv
-        └── train_clean.csv
+    ├── clean_data/
+    │   ├── definitions.csv
+    │   ├── test_clean.csv
+    │   └── train_clean.csv
+    └── split_data/
+        ├── meta.json
+        ├── train.jsonl
+        └── validation.jsonl
 
 How to clean data:
 - run preprocess_definitions.py to create a dictionary of common akkadian words (definitions.csv)
 - run preprocess_all.py to get rid of annotations and use canonical symbols (train_clean.csv and test_clean.csv)
+- run prepare_split.py to create a 90/10 train/validation split (written to data/split_data)
 Everything but data/clean_data is gitignored (zip and raw are too large)
 - It can take a while to get the definitions.csv so I decided it was better to just commit it
 - The test_clean.csv actually has no translations in it since it was used by kaggle to score each submission during the competition (translations were hidden from the teams so they couldn't see the answers).
+- The files in split_data (90/10 split in train.jsonl and validation.jsonl) are what is actually used to train the models
 
 It is also hard to make the definitions.csv without a cookie and user-agent (I didn't commit my cookies because apparently that's dangerous)
 If you want to make your own, do the following:
