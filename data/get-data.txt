@@ -21,7 +21,8 @@ How to clean data:
 - run preprocess_split.py to create a 90/10 train/validation split (written to data/split_data)
 Everything but data/clean_data is gitignored (zip and raw are too large)
 - It can take a while to get the definitions.csv so I decided it was better to just commit it
-- The test_clean.csv actually has no translations in it since it was used by kaggle to score each submission during the competition (translations were hidden from the teams so they couldn't see the answers).
+- The test_clean.csv actually has no translations in it since it was used by kaggle to score each submission during the competition (translations were hidden from the teams so they couldn't see the answers)
+- There are actually more samples in clean_data/train_clean.csv (2500) than raw_data/train.csv (1500) because we used sentence-level splitting to ensure each sample is roughly the same length (this is not 100% accurate, but it is better than the raw train)
 - The files in split_data (90/10 split in train.jsonl and validation.jsonl) are what is actually used to train the models
 
 It is also hard to make the definitions.csv without a cookie and user-agent (I didn't commit my cookies because apparently that's dangerous)
