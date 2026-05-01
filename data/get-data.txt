@@ -16,6 +16,7 @@ How to clean data:
 - run preprocess_all.py to get rid of annotations and use canonical symbols (train_clean.csv and test_clean.csv)
 Everything but data/clean_data is gitignored (zip and raw are too large)
 - It can take a while to get the definitions.csv so I decided it was better to just commit it
+- The test_clean.csv actually has no translations in it since it was used by kaggle to score each submission during the competition (translations were hidden from the teams).
 
 It is also hard to make the definitions.csv without a cookie and user-agent (I didn't commit my cookies because apparently that's dangerous)
 If you want to make your own, do the following:
