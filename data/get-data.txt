@@ -18,7 +18,7 @@ deep-past-akkadian/
 How to clean data:
 - run preprocess_definitions.py to create a dictionary of common akkadian words (definitions.csv)
 - run preprocess_all.py to get rid of annotations and use canonical symbols (train_clean.csv and test_clean.csv)
-- run prepare_split.py to create a 90/10 train/validation split (written to data/split_data)
+- run preprocess_split.py to create a 90/10 train/validation split (written to data/split_data)
 Everything but data/clean_data is gitignored (zip and raw are too large)
 - It can take a while to get the definitions.csv so I decided it was better to just commit it
 - The test_clean.csv actually has no translations in it since it was used by kaggle to score each submission during the competition (translations were hidden from the teams so they couldn't see the answers).
