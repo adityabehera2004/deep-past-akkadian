@@ -3,6 +3,8 @@ __pycache__/
 
 deep-past-initiative-machine-translation.zip
 data/*.zip
-data/raw_data/
+data/raw_data/*
+# keep so that we still have this directory in the repo
+!data/raw_data/.gitkeep
 
 .env
