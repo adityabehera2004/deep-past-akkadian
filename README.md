@@ -8,4 +8,4 @@ The ancient language of Akkadian is one of the earliest recorded languages used 
 
 In this project, we tried to automate translations of Akkadian by fine-tuning a Google ByT5 model on data from the Old Assyrian Research Environment (OARE) translations compiled by the Kaggle Deep Past Challenge and supplemental data from the Electronic Babylonian Library (EBL) dictionary.
 
-Report: 
+Report: https://www.therealdeets.com/deep-past-akkadian/report
